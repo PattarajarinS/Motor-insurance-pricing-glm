@@ -44,12 +44,12 @@ The overall claim frequency is 0.101 claims per policy-year, and about 95% of po
 
 ## Exploratory analysis
 
-Claim frequency (claims per policy-year) was analysed one factor at a time. Plots are in the `plots/` folder.
+Claim frequency (claims per policy-year) was analysed one factor at a time. Plots are included in the repository as PNG files.
 
 - **Driver age:** U-shaped. Highest for ages 18–20 (0.249), lowest for ages 30–40 (0.090). A second rise for ages 40–60 likely reflects young family members driving their parents' cars, as only the main policyholder's age is recorded.
 - **Bonus-malus:** Frequency rises steeply from about 0.08 at the maximum discount to about 0.37 for levels 100–150 (0.57 for levels 150–250, a small group of only 95 policy-years).
 
-![Claim frequency by bonus-malus](plots/freq_by_BonusMalusBand.png)
+![Claim frequency by bonus-malus](freq_by_BonusMalusBand.png)
 - **Area:** Frequency increases from rural (A) to urban (F). `Area` is a banded version of population density (median density rises from 27 to 27,000 inhabitants/km²), so only `Area` was used, to avoid collinearity.
 - **Vehicle power and fuel type:** Weak effects with no clear pattern.
 
@@ -127,7 +127,7 @@ Excluding large claims, the model predicts test costs within 2%. The remaining 1
 | 10 (highest risk) | 569 | 286 | 495 | 369 |
 | Top ÷ bottom (actual) | | 2.5× | | **3.6×** |
 
-![Lift chart of the final model](plots/lift_chart_paid.png)
+![Lift chart of the final model](lift_chart_paid.png)
 
 The paid-claim model places genuinely more expensive policies in the top group and reduces the overprediction there from about 2× to about 1.3×. A uniform adjustment factor would have hidden this problem, as both approaches give almost the same overall balance.
 
@@ -157,7 +157,7 @@ motor-pricing/
 ├── 05_model_testing.R              # Likelihood ratio tests, exposure as covariate
 ├── 06_severity_glm.R               # Large claims, Gamma GLM
 ├── 07_pure_premium_validation.R    # Pure premium, paid-claim model, lift charts
-└── plots/                          # Saved charts
+└── *.png                           # Saved charts (the scripts write them to plots/)
 ```
 
 ## Tools
